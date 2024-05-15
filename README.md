@@ -83,4 +83,4 @@ CREATE TABLE CartItems (
 
 ### ER-диаграмма
 
-![ER](attachments/Ssms_AsksyjszP7 "MSSMS ER Diagram")
+![ER](attachments/Ssms_AsksyjszP7.png "MSSMS ER Diagram")
