@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AntiqueShop"
         mc:Ignorable="d"
-        Title="Магазин" Height="450" Width="800">
-	<Grid HorizontalAlignment="Center" Background="Black">
-		<Frame x:Name="MainFrame" Content="Frame" VerticalAlignment="Center" HorizontalAlignment="Center" Width="800" Height="435" Background="White" />
-	</Grid>
+        Title="Антикварный магазин" Height="450" Width="800">
+    <Grid>
+        <Frame x:Name="MainFrame" Content="Frame"/>
+
+    </Grid>
 </Window>

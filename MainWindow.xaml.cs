@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AntiqueShop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace AntiqueShop
         public MainWindow()
         {
             InitializeComponent();
+
+            Connector.dbmaster = new Entities();
+            AppFrame.MainFrame = MainFrame;
+
+            MainFrame.Navigate(new BootUp.LogIn());
         }
     }
 }
