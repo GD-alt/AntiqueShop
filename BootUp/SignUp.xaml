@@ -16,14 +16,14 @@
         <TextBox x:Name="LgnBox" HorizontalAlignment="Left" Margin="27,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="356" Height="29"/>
         <Label Content="Введите пароль:" HorizontalAlignment="Left" Margin="27,125,0,0" VerticalAlignment="Top" FontSize="14"/>
         <PasswordBox x:Name="PasswdBox" HorizontalAlignment="Left" Margin="27,154,0,0" VerticalAlignment="Top" Width="356" Height="30"/>
-        <Button x:Name="SgnupBtn" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="227,350,0,0" VerticalAlignment="Top" Height="36" Width="179" Background="White"/>
-        <Button x:Name="LoginBtn" Content="Войти" HorizontalAlignment="Left" Margin="405,350,0,0" VerticalAlignment="Top" Height="36" Width="179"/>
+        <Button x:Name="SgnupBtn" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="227,332,0,0" VerticalAlignment="Top" Height="36" Width="179" Background="White"/>
+        <Button x:Name="LoginBtn" Content="Войти" HorizontalAlignment="Left" Margin="405,332,0,0" VerticalAlignment="Top" Height="36" Width="179" Click="LoginBtn_Click"/>
         <Label Content="Введите имя:" HorizontalAlignment="Left" Margin="416,64,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="416,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="356" Height="29"/>
         <Label Content="Введите фамилию:" HorizontalAlignment="Left" Margin="413,129,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBox x:Name="SurnameBox" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="356" Height="28" Margin="416,156,0,0"/>
-        <Label Content="Повторите пароль:" HorizontalAlignment="Left" Margin="28,184,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <PasswordBox x:Name="RPasswdBox" HorizontalAlignment="Left" Margin="27,0,0,0" VerticalAlignment="Center" Width="356" Height="30"/>
+        <Label Content="Повторите пароль:" HorizontalAlignment="Left" Margin="28,199,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <PasswordBox x:Name="RPasswdBox" HorizontalAlignment="Left" Margin="27,233,0,0" VerticalAlignment="Top" Width="356" Height="30"/>
         <Label Content="Введите номер телефона:" HorizontalAlignment="Left" Margin="409,185,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBox x:Name="PhoneBox" HorizontalAlignment="Left" Margin="416,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="356" Height="28"/>
         <Label Content="Введите почту:" HorizontalAlignment="Left" Margin="410,246,0,0" VerticalAlignment="Top" FontSize="14"/>

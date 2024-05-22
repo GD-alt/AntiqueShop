@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AntiqueShop.Models;
 
 namespace AntiqueShop.BootUp
 {
@@ -23,6 +24,11 @@ namespace AntiqueShop.BootUp
         public SignUp()
         {
             InitializeComponent();
+        }
+
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.MainFrame.Navigate(new SignIn());
         }
     }
 }

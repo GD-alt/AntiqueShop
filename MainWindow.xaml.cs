@@ -25,10 +25,10 @@ namespace AntiqueShop
         {
             InitializeComponent();
 
-            Connector.dbmaster = new Entities();
+            Connector.db = new Entities();
             AppFrame.MainFrame = MainFrame;
 
-            MainFrame.Navigate(new BootUp.LogIn());
+            MainFrame.Navigate(new BootUp.SignIn());
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AntiqueShop.Models;
 
 namespace AntiqueShop.BootUp
 {
@@ -23,6 +24,22 @@ namespace AntiqueShop.BootUp
         public SignIn()
         {
             InitializeComponent();
+        }
+
+        private void SgnupBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.MainFrame.Navigate(new SignUp());
+        }
+
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Users user = Connector.db.Users.FirstOrDefault(x => x.email == LgnBox.Text);
+
+            if (user == null)
+            {
+                MessageBox.Show("Taкогo пользователя нет! ", "Oшибка авторизации!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
         }
     }
 }
