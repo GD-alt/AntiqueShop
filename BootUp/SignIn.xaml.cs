@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AntiqueShop.Models;
+using AntiqueShop.Store;
+using AntiqueShop.Utils;
 
 namespace AntiqueShop.BootUp
 {
@@ -33,13 +35,24 @@ namespace AntiqueShop.BootUp
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
+            string[] data = { LgnBox.Text, PasswdBox.Password };
             Users user = Connector.db.Users.FirstOrDefault(x => x.email == LgnBox.Text);
+
+            if (Utils.Utils.AnyIsNullOrEmpty(data))
 
             if (user == null)
             {
-                MessageBox.Show("Taкогo пользователя нет! ", "Oшибка авторизации!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Taкогo пользователя нет!", "Oшибка авторизации!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
+            if (!Utils.Encoder.ValidateString(PasswdBox.Password, user.password))
+            {
+                MessageBox.Show("Неверный пароль!", "Oшибка авторизации!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            AppFrame.MainFrame.Navigate(new Store.Store());
         }
     }
 }
