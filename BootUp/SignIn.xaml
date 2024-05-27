@@ -15,7 +15,7 @@
         <Label Content="Введите логин:" HorizontalAlignment="Left" Margin="222,98,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBox x:Name="LgnBox" HorizontalAlignment="Center" Margin="0,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="357" Height="29"/>
         <Label Content="Введите пароль:" HorizontalAlignment="Left" Margin="222,187,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <PasswordBox x:Name="PasswdBox" HorizontalAlignment="Center" Margin="0,221,0,0" VerticalAlignment="Top" Width="356" Height="30"/>
+        <PasswordBox x:Name="PasswdBox" HorizontalAlignment="Center" Margin="0,220,0,0" VerticalAlignment="Top" Width="356" Height="30"/>
         <Button x:Name="LoginBtn" Content="Войти" HorizontalAlignment="Left" Margin="222,279,0,0" VerticalAlignment="Top" Height="36" Width="179" Background="White" Click="LoginBtn_Click"/>
         <Button x:Name="SgnupBtn" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="400,279,0,0" VerticalAlignment="Top" Height="36" Width="179" Click="SgnupBtn_Click"/>
     </Grid>
