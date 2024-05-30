@@ -11,6 +11,7 @@ namespace AntiqueShop.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     
     public partial class Products
     {
@@ -26,6 +27,18 @@ namespace AntiqueShop.Models
         public decimal price { get; set; }
         public int category_id { get; set; }
         public string image_url { get; set; }
+        public string image_path
+        {
+            get
+            {
+                if (!File.Exists($"../../Images/{image_url}"))
+                {
+                    return "../Images/placeholder.jpg";
+                }
+
+                return $"../Images/{image_url}";
+            }
+        }
         public int stock { get; set; }
         public byte is_featured { get; set; }
         public Nullable<int> size_id { get; set; }

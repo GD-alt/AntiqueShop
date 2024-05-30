@@ -30,6 +30,7 @@ namespace AntiqueShop.BootUp
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
             AppFrame.MainFrame.Navigate(new SignIn());
+            Products product = new Products();
         }
 
         private void SgnupBtn_Click(object sender, RoutedEventArgs e)
@@ -73,7 +74,7 @@ namespace AntiqueShop.BootUp
             
 
             Connector.db.Users.Add(user);
-            Connector.db.Users.SaveChanges();
+            Connector.db.SaveChanges();
         }
     }
 }

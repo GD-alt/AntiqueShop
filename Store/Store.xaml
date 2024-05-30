@@ -38,17 +38,17 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="{Binding image_url}" Grid.Column="0" Margin="10,10,10,10" Width="90"/>
-                        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Source="{Binding image_path}" Grid.Column="0" Margin="10,10,10,10" Width="90"/>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="500">
                             <TextBlock Text="{Binding name}" FontSize="16" FontWeight="Bold" Margin="10,10,10,10"/>
                             <TextBlock Text="{Binding description}" FontSize="14" FontWeight="Normal" Margin="10,10,10,10"/>
-                            <TextBlock Text="{Binding size}" FontSize="12" FontWeight="Normal" Margin="10,10,10,10"/>
+                            <TextBlock Text="{Binding Sizes.size_name}" FontSize="12" FontWeight="Normal" Margin="10,10,10,10"/>
                             <TextBlock Text="{Binding color}" FontSize="12" FontWeight="Normal" Margin="10,10,10,10"/>
                         </StackPanel>
-                        <StackPanel Grid.Column="2"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <TextBlock Text="{Binding price}" FontSize="16" FontWeight="Bold" Margin="10,10,10,10"/>
                             <TextBlock Text="{Binding stock}" FontSize="16" FontWeight="Bold" Margin="10,10,10,10"/>
-                            <TextBlock Text="{Binding category}" FontSize="14" FontWeight="Normal" Margin="10,10,10,10"/>
+                            <TextBlock Text="{Binding Categories.category_name}" FontSize="14" FontWeight="Normal" Margin="10,10,10,10"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

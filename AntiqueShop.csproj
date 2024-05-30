@@ -186,6 +186,19 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\armchair.jpg" />
+    <Resource Include="Images\chandelier.jpg" />
+    <Resource Include="Images\chest.jpg" />
+    <Resource Include="Images\clock.jpg" />
+    <Resource Include="Images\coffeetable.jpg" />
+    <Resource Include="Images\figurine.jpg" />
+    <Resource Include="Images\mirror.jpg" />
+    <Resource Include="Images\placeholder.jpg" />
+    <Resource Include="Images\sidetable.jpg" />
+    <Resource Include="Images\sofa.jpg" />
+    <Resource Include="Images\teapot.jpg" />
+    <Resource Include="Images\teaset.jpg" />
+    <Resource Include="Images\vase.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
