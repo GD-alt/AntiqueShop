@@ -9,10 +9,7 @@
           <Key>
             <PropertyRef Name="cart_item_id" />
           </Key>
-          <Property Name="cart_item_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="user_id" Type="int" Nullable="false" />
-          <Property Name="product_id" Type="int" Nullable="false" />
-          <Property Name="quantity" Type="int" Nullable="false" />
+          
         </EntityType>
         <EntityType Name="Categories">
           <Key>
