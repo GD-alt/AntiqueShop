@@ -21,11 +21,14 @@ namespace AntiqueShop.Store
     /// </summary>
     public partial class Store : Page
     {
-        public Store()
+        public Store(int role)
         {
             InitializeComponent();
             InitializeData();
+            Role = role;
         }
+
+        public int Role { get; set; }
 
         List<Sizes> sizes = Connector.db.Sizes.ToList();
         bool sortOrder = false;
@@ -49,6 +52,20 @@ namespace AntiqueShop.Store
             }
 
             FilterCombo.SelectedIndex = 0;
+
+            switch (Role)
+            {
+                case 1:
+                    AddGood.Visibility = Visibility.Hidden;
+                    EditGood.Visibility = Visibility.Hidden;
+                    UsersMenu.Visibility = Visibility.Hidden;
+                    break;
+                case 2:
+                    UsersMenu.Visibility = Visibility.Hidden;
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void Update()

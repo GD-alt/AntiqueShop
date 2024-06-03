@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +36,7 @@ namespace AntiqueShop.BootUp
 
         private void SgnupBtn_Click(object sender, RoutedEventArgs e)
         {
-            string[] data = { LgnBox.Text, PasswdBox.Password, RPasswdBox.Password, NameBox.Text, SurnameBox.Text, PhoneBox.Text, MailBox.Text };
+            string[] data = { PasswdBox.Password, RPasswdBox.Password, NameBox.Text, SurnameBox.Text, PhoneBox.Text, MailBox.Text };
             if (Utils.Utils.AnyIsNullOrEmpty(data))
             {
                 MessageBox.Show("Поля не должны быть пусты!", "Oшибка регистрации!", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -75,6 +76,7 @@ namespace AntiqueShop.BootUp
 
             Connector.db.Users.Add(user);
             Connector.db.SaveChanges();
+            MessageBox.Show("Регистрация успешна", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

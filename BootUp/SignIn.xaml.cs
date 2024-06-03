@@ -52,7 +52,8 @@ namespace AntiqueShop.BootUp
                 return;
             }
 
-            AppFrame.MainFrame.Navigate(new Store.Store());
+            MessageBox.Show($"Добро пожаловать, {user.first_name} {user.last_name}!", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);
+            AppFrame.MainFrame.Navigate(new Store.Store(user.role_id));
         }
     }
 }

@@ -14,8 +14,8 @@ namespace AntiqueShop.Utils
             // Remove all non-digit characters from the phone number
             phoneNumber = Regex.Replace(phoneNumber, @"[^0-9]", "");
 
-            // Check if the phone number starts with +7 or 8
-            if (phoneNumber.StartsWith("+7") || phoneNumber.StartsWith("8"))
+            // Check if the phone number starts with 7 or 8
+            if (phoneNumber.StartsWith("7") || phoneNumber.StartsWith("8"))
             {
                 // Check if the phone number is 11 digits long
                 if (phoneNumber.Length == 11)
