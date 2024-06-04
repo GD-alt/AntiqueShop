@@ -8,5 +8,6 @@ namespace AntiqueShop.Models
 {
     internal class Connector
     {
+        public static Entities db;
     }
 }

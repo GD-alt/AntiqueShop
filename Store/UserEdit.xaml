@@ -28,7 +28,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Телефон: " Margin="0,0,15,0"></Label>
-                <TextBox Name="PhoneBox" MinWidth="300" PreviewTextInput="DescBox_PreviewTextInput"/>
+                <TextBox Name="PhoneBox" MinWidth="300"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Почта: " Margin="0,0,15,0"></Label>

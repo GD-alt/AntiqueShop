@@ -36,7 +36,8 @@ namespace AntiqueShop.BootUp
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
             string[] data = { LgnBox.Text, PasswdBox.Password };
-            Users user = Connector.db.Users.FirstOrDefault(x => x.email == LgnBox.Text);
+            string lgn = LgnBox.Text;
+            Users user = Connector.db.Users.FirstOrDefault(x => x.email == lgn);
 
             if (Utils.Utils.AnyIsNullOrEmpty(data))
 

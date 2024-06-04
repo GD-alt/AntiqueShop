@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8187080d8400444388e5612326e68b4b" Name="Diagram1">
+      <Diagram DiagramId="397b4319c46b408791b39e8de96e6afc" Name="Diagram1">
         <EntityTypeShape EntityType="Model.CartItems" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Categories" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Colors" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
@@ -17,11 +17,11 @@
         <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
         <AssociationConnector Association="Model.FK__CartItems__produ__06CD04F7" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK__CartItems__user___05D8E0BE" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Products__catego__7B5B524B" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Products__color___7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Products__catego__282DF8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Products__color___29221CFB" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK__Orders__status_i__02FC7413" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK__Orders__user_id__02084FDA" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Products__size_i__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Products__size_i__2A164134" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK__Users__role_id__787EE5A0" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

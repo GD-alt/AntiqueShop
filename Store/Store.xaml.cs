@@ -123,5 +123,10 @@ namespace AntiqueShop.Store
         {
             Update();
         }
+
+        private void ListProducts_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            Console.WriteLine(e.NewValue.ToString());
+        }
     }
 }

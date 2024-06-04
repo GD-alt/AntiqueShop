@@ -12,7 +12,7 @@ namespace AntiqueShop.Models
     using System;
     using System.Collections.Generic;
     using System.IO;
-    
+
     public partial class Products
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
