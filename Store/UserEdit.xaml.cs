@@ -34,6 +34,9 @@ namespace AntiqueShop.Store
 
             for (int i = 0; i < rolesList.Count; i++)
             {
+                if (roles.Keys.ToList().Contains(rolesList[i].role_name))
+                    continue;
+
                 roles.Add(rolesList[i].role_name, rolesList[i].role_id);
                 RoleCombo.Items.Add(rolesList[i].role_name);
             }
@@ -54,13 +57,13 @@ namespace AntiqueShop.Store
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!Utils.Validators.ValidateEmail(MailBox.Text))
+            if (!Validators.ValidateEmail(MailBox.Text))
             {
                 MessageBox.Show("Некорректный email.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (!Utils.Validators.ValidatePhone(PhoneBox.Text))
+            if (!Validators.ValidatePhone(PhoneBox.Text))
             {
                 MessageBox.Show("Некорректный номер телефона.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -75,6 +78,7 @@ namespace AntiqueShop.Store
             user.role_id = roles[RoleCombo.SelectedItem.ToString()];
 
             Connector.db.SaveChanges();
+            AppFrame.MainFrame.GoBack();
         }
     }
 }

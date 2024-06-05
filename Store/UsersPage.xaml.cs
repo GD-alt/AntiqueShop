@@ -41,8 +41,6 @@ namespace AntiqueShop.Store
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
-            Console.WriteLine((int)button.Tag);
-            Console.WriteLine(ID);
 
             if ((int)button.Tag == ID)
             {

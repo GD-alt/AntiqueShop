@@ -52,8 +52,9 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button x:Name="AddButton" Content="Сохранить" Margin="15" Click="AddButton_Click"/>
-                <Button x:Name="BackButton" Content="Назад" Margin="15" Click="BackButton_Click"/>
+                <Button x:Name="DelButton" Content="Удалить" Margin="15" Click="DelButton_Click"/>
             </StackPanel>
+            <Button x:Name="BackButton" Content="Назад" Margin="15" Click="BackButton_Click"/>
         </StackPanel>
     </Grid>
 </Page>

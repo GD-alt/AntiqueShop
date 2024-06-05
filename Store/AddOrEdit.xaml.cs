@@ -39,6 +39,10 @@ namespace AntiqueShop.Store
 
             for (int i = 0; i < sizesList.Count; i++)
             {
+                if (sizes.Keys.Contains(sizesList[i].size_name))
+                   continue;
+
+                
                 sizes.Add(sizesList[i].size_name, sizesList[i].size_id);
                 SizeCombo.Items.Add(sizesList[i].size_name);
             }
@@ -48,6 +52,9 @@ namespace AntiqueShop.Store
 
             for (int i = 0; i < categoriesList.Count; i++)
             {
+                if (categories.Keys.Contains(categoriesList[i].category_name))
+                   continue;
+
                 categories.Add(categoriesList[i].category_name, categoriesList[i].category_id);
                 CatCombo.Items.Add(categoriesList[i].category_name);
             }
@@ -57,6 +64,9 @@ namespace AntiqueShop.Store
 
             for (int i = 0; i < colorsList.Count; i++)
             {
+                if (colors.Keys.Contains(colorsList[i].color_name))
+                   continue;
+
                 colors.Add(colorsList[i].color_name, colorsList[i].color_id);
                 ColorCombo.Items.Add(colorsList[i].color_name);
             }
@@ -96,6 +106,7 @@ namespace AntiqueShop.Store
                 ColorCombo.SelectedIndex = 0;
                 Title = "Добавление товара";
                 AddButton.Content = "Добавить";
+                DelButton.Visibility = Visibility.Hidden;
             }
         }
 
@@ -200,6 +211,18 @@ namespace AntiqueShop.Store
             }
 
             AppFrame.MainFrame.GoBack();
+        }
+
+        private void DelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Products product = Connector.db.Products.Find(ProductId);
+
+            if (MessageBox.Show($"Вы уверены, что хотите удалить товар {product.name} (ID {product.product_id})?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Connector.db.Products.Remove(product);
+                Connector.db.SaveChanges();
+                AppFrame.MainFrame.GoBack();
+            }
         }
     }
 }
