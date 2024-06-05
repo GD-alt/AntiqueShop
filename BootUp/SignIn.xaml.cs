@@ -40,6 +40,10 @@ namespace AntiqueShop.BootUp
             Users user = Connector.db.Users.FirstOrDefault(x => x.email == lgn);
 
             if (Utils.Utils.AnyIsNullOrEmpty(data))
+            {
+                MessageBox.Show("Заполните все поля!", "Oшибка авторизации!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             if (user == null)
             {

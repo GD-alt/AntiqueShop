@@ -167,5 +167,63 @@ namespace AntiqueShop.Store
         {
             AppFrame.MainFrame.Navigate(new AntiqueShop.Store.UsersPage(MyID));
         }
+
+        private void AddToCart_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            int itemId = (int)button.Tag;
+
+            CartItems cart = Connector.db.CartItems.FirstOrDefault(x => x.user_id == MyID && x.product_id == itemId);
+            Products product = Connector.db.Products.FirstOrDefault(x => x.product_id == itemId);
+
+            if (cart != null) {
+                if (cart.quantity < product.stock)
+                {
+                    cart.quantity++;
+                    MessageBox.Show("Товар добавлен в корзину.", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Connector.db.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Товара нет в наличии.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    
+                    if (product.stock <= 0)
+                    {
+                        Connector.db.CartItems.Remove(cart);
+                    }
+                    else
+                    {
+                        cart.quantity = product.stock;
+                    }
+                }
+            }
+            else
+            {
+                if (product.stock > 0)
+                {
+                    CartItems newCart = new CartItems
+                    {
+                        user_id = MyID,
+                        product_id = itemId,
+                        quantity = 1
+                    };
+
+                    Connector.db.CartItems.Add(newCart);
+                    MessageBox.Show("Товар добавлен в корзину.", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {   
+                    MessageBox.Show("Товара нет в наличии.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+
+            Connector.db.SaveChanges();
+            Console.WriteLine("done");
+        }
+
+        private void CartBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.MainFrame.Navigate(new AntiqueShop.Store.Cart(MyID));
+        }
     }
 }

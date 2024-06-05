@@ -26,22 +26,22 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="{Binding image_path}" Grid.Column="0" Margin="10,10,10,10" Width="70"/>
+                        <Image Source="{Binding Products.image_path}" Grid.Column="0" Margin="10,10,10,10" Width="70"/>
                         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="500" Width="438">
-                            <TextBlock Text="{Binding name}" FontSize="16" FontWeight="Bold" Margin="10,10,10,10"/>
-                            <TextBlock Text="{Binding description}" FontSize="14" FontWeight="Normal" Margin="10,10,10,10"/>
-                            <TextBlock Text="{Binding Sizes.size_name}" FontSize="12" FontWeight="Normal" Margin="10,10,10,10"/>
-                            <TextBlock Text="{Binding color}" FontSize="12" FontWeight="Normal" Margin="10,10,10,10"/>
+                            <TextBlock Text="{Binding Products.name}" FontSize="16" FontWeight="Bold" Margin="10,10,10,10"/>
+                            <TextBlock Text="{Binding Products.description}" FontSize="14" FontWeight="Normal" Margin="10,10,10,10"/>
+                            <TextBlock Text="{Binding Products.Sizes.size_name}" FontSize="12" FontWeight="Normal" Margin="10,10,10,10"/>
+                            <TextBlock Text="{Binding Products.Colors.color_name}" FontSize="12" FontWeight="Normal" Margin="10,10,10,10"/>
                         </StackPanel>
                         <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <TextBlock Text="{Binding price}" FontSize="16" FontWeight="Bold" Margin="10,10,10,10"/>
-                            <TextBlock Text="{Binding stock, StringFormat=На складе: {0}}" FontSize="15" FontWeight="Normal" Margin="10,10,10,10"/>
-                            <TextBlock Text="{Binding Categories.category_name}" FontSize="14" FontWeight="Normal" Margin="10,10,10,10"/>
+                            <TextBlock Text="{Binding Products.price}" FontSize="16" FontWeight="Bold" Margin="10,10,10,10"/>
+                            <TextBlock Text="{Binding Products.stock, StringFormat=На складе: {0}}" FontSize="15" FontWeight="Normal" Margin="10,10,10,10"/>
+                            <TextBlock Text="{Binding Products.Categories.category_name}" FontSize="14" FontWeight="Normal" Margin="10,10,10,10"/>
                         </StackPanel>
                         <StackPanel Grid.Column="3" MinWidth="40" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Button Content="+" Tag="{Binding product_id, StringFormat=Add{0}}"></Button>
+                            <Button x:Name="AddBtn" Content="+" Tag="{Binding Products.product_id}" Click="AddBtn_Click"></Button>
                             <TextBlock Text="{Binding quantity}" TextAlignment="Center" Margin="0,10"/>
-                            <Button Content="–" Tag="{Binding product_id, StringFormat=Add{0}}"></Button>
+                            <Button x:Name="ReduceBtn" Content="–" Tag="{Binding Products.product_id}" Click="ReduceBtn_Click"></Button>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
@@ -49,7 +49,7 @@
         </ListView>
         <StackPanel Grid.Row="1" Background="White" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Content="Заказать" Margin="10"></Button>
-            <Button Content="Назад" Margin="10"></Button>
+            <Button Content="Назад" Margin="10" Click="BackButton_Click"></Button>
         </StackPanel>
     </Grid>
 </Page>

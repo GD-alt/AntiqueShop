@@ -44,7 +44,7 @@
                             <TextBlock Text="{Binding Categories.category_name}" FontSize="14" FontWeight="Normal" Margin="10,10,10,10"/>
                         </StackPanel>
                         <StackPanel Grid.Column="3" MinWidth="40" VerticalAlignment="Center" Margin="0,10,0,0" Grid.Row="1" HorizontalAlignment="Center">
-                            <Button Content="+" Tag="{Binding product_id}"></Button>
+                            <Button x:Name="AddToCart" Content="+" Tag="{Binding product_id}" Visibility="{Binding featured}" Click="AddToCart_Click"></Button>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
@@ -52,7 +52,7 @@
         </ListView>
         <Button x:Name="AddGood" Content="Добавить" HorizontalAlignment="Left" Margin="412,0,0,0" VerticalAlignment="Center" Click="AddGood_Click"/>
         <Button x:Name="EditGood" Content="Редактировать" HorizontalAlignment="Left" Margin="474,0,0,0" VerticalAlignment="Center" Click="EditGood_Click"/>
-        <Button x:Name="CartBtn" Content="Корзина" HorizontalAlignment="Left" Margin="650,0,0,0" VerticalAlignment="Center"/>
+        <Button x:Name="CartBtn" Content="Корзина" HorizontalAlignment="Left" Margin="650,0,0,0" VerticalAlignment="Center" Click="CartBtn_Click"/>
         <Button x:Name="UsersMenu" Content="Пользователи" HorizontalAlignment="Left" Margin="564,0,0,0" VerticalAlignment="Center" Click="UsersMenu_Click"/>
         <Button x:Name="Orders" Content="Заказы" HorizontalAlignment="Left" Margin="705,0,0,0" VerticalAlignment="Center"/>
         <Button x:Name="ExitButton" Content="Выход" HorizontalAlignment="Left" Margin="753,0,0,0" VerticalAlignment="Center" Click="ExitButton_Click"/>

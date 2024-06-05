@@ -12,6 +12,7 @@ namespace AntiqueShop.Models
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Windows;
 
     public partial class Products
     {
@@ -40,9 +41,23 @@ namespace AntiqueShop.Models
             }
         }
         public int stock { get; set; }
-        public byte is_featured { get; set; }
-        public Nullable<int> size_id { get; set; }
-        public Nullable<int> color_id { get; set; }
+        public bool is_featured { get; set; }  // Redundant property
+        public Visibility featured
+        {
+            get
+            {
+                if (stock > 0)
+                {
+                    return Visibility.Visible;
+                }
+                else
+                {
+                    return Visibility.Hidden;
+                }
+            }
+        }
+        public int size_id { get; set; }
+        public int color_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartItems> CartItems { get; set; }
