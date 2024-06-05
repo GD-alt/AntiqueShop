@@ -21,18 +21,36 @@ namespace AntiqueShop.Store
     /// </summary>
     public partial class Store : Page
     {
-        public Store(int role)
+        public Store(int role, int id)
         {
             InitializeComponent();
-            InitializeData();
             Role = role;
+
+            switch (Role)
+            {
+                case 1:
+                    AddGood.Visibility = Visibility.Hidden;
+                    EditGood.Visibility = Visibility.Hidden;
+                    UsersMenu.Visibility = Visibility.Hidden;
+                    break;
+                case 2:
+                    UsersMenu.Visibility = Visibility.Hidden;
+                    break;
+                default:
+                    break;
+            }
+
+            InitializeData();
+            MyID = id;
         }
 
         public int Role { get; set; }
+        public int MyID { get; set; }
 
         List<Sizes> sizes = Connector.db.Sizes.ToList();
         bool sortOrder = false;
         string size = "";
+        int selectedItem = 0;
 
         public void InitializeData()
         {
@@ -52,20 +70,6 @@ namespace AntiqueShop.Store
             }
 
             FilterCombo.SelectedIndex = 0;
-
-            switch (Role)
-            {
-                case 1:
-                    AddGood.Visibility = Visibility.Hidden;
-                    EditGood.Visibility = Visibility.Hidden;
-                    UsersMenu.Visibility = Visibility.Hidden;
-                    break;
-                case 2:
-                    UsersMenu.Visibility = Visibility.Hidden;
-                    break;
-                default:
-                    break;
-            }
         }
 
         public void Update()
@@ -124,9 +128,44 @@ namespace AntiqueShop.Store
             Update();
         }
 
-        private void ListProducts_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void ListProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Console.WriteLine(e.NewValue.ToString());
+            for (int i = 0; i < e.AddedItems.Count; i++)
+            {
+                Products item = (Products)e.AddedItems[i];
+                selectedItem = item.product_id;
+            }
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Вы вышли из системы.", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);
+            AppFrame.MainFrame.Navigate(new BootUp.SignIn());
+        }
+
+        private void EditGood_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedItem == 0)
+            {
+                return;
+            }
+
+            AppFrame.MainFrame.Navigate(new AntiqueShop.Store.AddOrEdit(true, selectedItem));
+        }
+
+        private void AddGood_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.MainFrame.Navigate(new AntiqueShop.Store.AddOrEdit(false, 0));
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Update();
+        }
+
+        private void UsersMenu_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.MainFrame.Navigate(new AntiqueShop.Store.UsersPage(MyID));
         }
     }
 }

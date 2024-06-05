@@ -12,17 +12,10 @@ namespace AntiqueShop.Utils
         public static bool ValidatePhone(string phoneNumber)
         {
             // Remove all non-digit characters from the phone number
-            phoneNumber = Regex.Replace(phoneNumber, @"[^0-9]", "");
+            phoneNumber = Regex.Replace(phoneNumber, @"[^0-9\+]", "");
 
-            // Check if the phone number starts with 7 or 8
-            if (phoneNumber.StartsWith("7") || phoneNumber.StartsWith("8"))
-            {
-                // Check if the phone number is 11 digits long
-                if (phoneNumber.Length == 11)
-                {
-                    return true;
-                }
-            }
+            if (Regex.IsMatch(phoneNumber, @"(\+7|8)\d{10}$"))
+                return true;
 
             return false;
         }

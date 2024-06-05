@@ -9,11 +9,10 @@
       Title="UsersPage">
 
     <Grid Background="White">
-        <ListView x:Name="ListProducts" ScrollViewer.CanContentScroll="False" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="14" FontFamily="Segoe UI" Grid.Row="1">
+        <ListView x:Name="ListUsers" ScrollViewer.CanContentScroll="False" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="14" FontFamily="Segoe UI" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid ShowGridLines="True">
-                        <!-- Three columns — one for image (small), basical info (leftover space), price and amount (small) -->
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition/>
@@ -25,9 +24,9 @@
                             <TextBlock Text="{Binding phone}" FontSize="12" FontWeight="Normal" Margin="10,10,10,10"/>
                         </StackPanel>
                         <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <TextBlock Text="{Binding Roles.role_name}" FontSize="16" FontWeight="Bold" Margin="10,10,10,10"/>
-                            <Button Content="Редактировать" Margin="10,10,10,10"/>
-                            <Button Content="Удалить" Margin="10,10,10,10"/>
+                            <TextBlock Text="{Binding Roles.role_name}" FontSize="14" FontWeight="Normal" Margin="10,10,10,10"/>
+                            <Button x:Name="EditBtn" Tag="{Binding user_id}" Content="Редактировать" Margin="10,10,10,10" Click="EditBtn_Click"/>
+                            <Button x:Name="DelBtn" Tag="{Binding user_id}" Content="Удалить" Margin="10,10,10,10" Click="DelBtn_Click"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

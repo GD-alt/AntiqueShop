@@ -70,7 +70,8 @@ namespace AntiqueShop.BootUp
                 last_name = SurnameBox.Text,
                 role_id = 1,
                 phone = PhoneBox.Text,
-                email = MailBox.Text
+                email = MailBox.Text,
+                password = Utils.Encoder.HashString(PasswdBox.Password)
             };
             
 

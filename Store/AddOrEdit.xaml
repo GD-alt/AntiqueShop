@@ -40,7 +40,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="На складе: " Margin="0,0,15,0"></Label>
-                <TextBox Name="InStockBox" MinWidth="300"/>
+                <TextBox Name="InStockBox" MinWidth="300" PreviewTextInput="InStockBox_PreviewTextInput"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Размер: " Margin="0,0,15,0"></Label>
@@ -51,8 +51,8 @@
                 <ComboBox Name="ColorCombo" MinWidth="300"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button Content="Сохранить" Margin="15"/>
-                <Button Content="Назад" Margin="15"/>
+                <Button x:Name="AddButton" Content="Сохранить" Margin="15" Click="AddButton_Click"/>
+                <Button x:Name="BackButton" Content="Назад" Margin="15" Click="BackButton_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>

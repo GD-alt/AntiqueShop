@@ -34,17 +34,19 @@
                 <Label Content="Почта: " Margin="0,0,15,0"></Label>
                 <TextBox Name="MailBox" MinWidth="300"/>
             </StackPanel>
+            <!-- 
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Пароль: " Margin="0,0,15,0"></Label>
                 <TextBox Name="ImgCombo" MinWidth="300"/>
             </StackPanel>
+            -->
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Label Content="Роль: " Margin="0,0,15,0"></Label>
-                <ComboBox Name="InStockBox" MinWidth="300"/>
+                <ComboBox Name="RoleCombo" MinWidth="300"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button Content="Сохранить" Margin="15"/>
-                <Button Content="Назад" Margin="15"/>
+                <Button Content="Сохранить" Margin="15" Click="EditButton_Click"/>
+                <Button Content="Назад" Margin="15" Click="BackButton_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>

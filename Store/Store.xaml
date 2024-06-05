@@ -6,20 +6,20 @@
       xmlns:local="clr-namespace:AntiqueShop.Store"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Store">
+      Title="Store" Loaded="Page_Loaded">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Content="Поиск:" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" FontSize="14"/>
-        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Margin="60,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="85" Height="28" TextChanged="SearchBox_TextChanged"/>
-        <ComboBox x:Name="SortCombo" HorizontalAlignment="Left" VerticalAlignment="Center" Width="86" Height="28" SelectionChanged="SortCombo_SelectionChanged" Margin="349,0,0,0"/>
-        <Label Content="Цена:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="302,0,0,0"/>
-        <ComboBox x:Name="FilterCombo" HorizontalAlignment="Left" VerticalAlignment="Center" Width="85" Height="28" SelectionChanged="FilterCombo_SelectionChanged" Margin="213,0,0,0"/>
-        <Label Content="Размер:" HorizontalAlignment="Left" Margin="150,0,0,0" VerticalAlignment="Center" FontSize="14"/>
-        <ListView x:Name="ListProducts" ScrollViewer.CanContentScroll="False" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="14" FontFamily="Segoe UI" Grid.Row="1" FocusableChanged="ListProducts_FocusableChanged">
+        <Label Content="Поиск:" HorizontalAlignment="Left" Margin="9,0,0,0" VerticalAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Margin="64,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="75" Height="28" TextChanged="SearchBox_TextChanged"/>
+        <ComboBox x:Name="SortCombo" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Height="28" SelectionChanged="SortCombo_SelectionChanged" Margin="328,0,0,0"/>
+        <Label Content="Цена:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" Margin="281,0,0,0"/>
+        <ComboBox x:Name="FilterCombo" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Height="28" SelectionChanged="FilterCombo_SelectionChanged" Margin="205,0,0,0"/>
+        <Label Content="Размер:" HorizontalAlignment="Left" Margin="142,0,0,0" VerticalAlignment="Center" FontSize="14"/>
+        <ListView x:Name="ListProducts" ScrollViewer.CanContentScroll="False" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="14" FontFamily="Segoe UI" Grid.Row="1" SelectionChanged="ListProducts_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -50,10 +50,11 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="AddGood" Content="Добавить" HorizontalAlignment="Left" Margin="456,0,0,0" VerticalAlignment="Center"/>
-        <Button x:Name="EditGood" Content="Редактировать" HorizontalAlignment="Left" Margin="518,0,0,0" VerticalAlignment="Center"/>
-        <Button x:Name="CartBtn" Content="Корзина" HorizontalAlignment="Left" Margin="694,0,0,0" VerticalAlignment="Center"/>
-        <Button x:Name="UsersMenu" Content="Пользователи" HorizontalAlignment="Left" Margin="608,0,0,0" VerticalAlignment="Center"/>
-        <Button x:Name="Orders" Content="Заказы" HorizontalAlignment="Left" Margin="749,0,0,0" VerticalAlignment="Center"/>
+        <Button x:Name="AddGood" Content="Добавить" HorizontalAlignment="Left" Margin="412,0,0,0" VerticalAlignment="Center" Click="AddGood_Click"/>
+        <Button x:Name="EditGood" Content="Редактировать" HorizontalAlignment="Left" Margin="474,0,0,0" VerticalAlignment="Center" Click="EditGood_Click"/>
+        <Button x:Name="CartBtn" Content="Корзина" HorizontalAlignment="Left" Margin="650,0,0,0" VerticalAlignment="Center"/>
+        <Button x:Name="UsersMenu" Content="Пользователи" HorizontalAlignment="Left" Margin="564,0,0,0" VerticalAlignment="Center" Click="UsersMenu_Click"/>
+        <Button x:Name="Orders" Content="Заказы" HorizontalAlignment="Left" Margin="705,0,0,0" VerticalAlignment="Center"/>
+        <Button x:Name="ExitButton" Content="Выход" HorizontalAlignment="Left" Margin="753,0,0,0" VerticalAlignment="Center" Click="ExitButton_Click"/>
     </Grid>
 </Page>
