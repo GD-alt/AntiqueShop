@@ -14,6 +14,12 @@ namespace AntiqueShop.Models
     
     public partial class Orders
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Orders()
+        {
+            this.CartItems = new HashSet<CartItems>();
+        }
+    
         public int order_id { get; set; }
         public int user_id { get; set; }
         public System.DateTime order_date { get; set; }
@@ -21,6 +27,8 @@ namespace AntiqueShop.Models
         public int status_id { get; set; }
         public string shipping_address { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CartItems> CartItems { get; set; }
         public virtual OrderStatuses OrderStatuses { get; set; }
         public virtual Users Users { get; set; }
     }

@@ -173,7 +173,7 @@ namespace AntiqueShop.Store
             Button button = sender as Button;
             int itemId = (int)button.Tag;
 
-            CartItems cart = Connector.db.CartItems.FirstOrDefault(x => x.user_id == MyID && x.product_id == itemId);
+            CartItems cart = Connector.db.CartItems.FirstOrDefault(x => x.user_id == MyID && x.product_id == itemId && x.order_id == null);
             Products product = Connector.db.Products.FirstOrDefault(x => x.product_id == itemId);
 
             if (cart != null) {

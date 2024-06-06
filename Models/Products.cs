@@ -41,7 +41,7 @@ namespace AntiqueShop.Models
             }
         }
         public int stock { get; set; }
-        public bool is_featured { get; set; }  // Redundant property
+        public byte is_featured { get; set; }  // Redundant property
         public Visibility featured
         {
             get
@@ -56,8 +56,8 @@ namespace AntiqueShop.Models
                 }
             }
         }
-        public int size_id { get; set; }
-        public int color_id { get; set; }
+        public Nullable<int> size_id { get; set; }
+        public Nullable<int> color_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CartItems> CartItems { get; set; }

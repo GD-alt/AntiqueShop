@@ -18,8 +18,10 @@ namespace AntiqueShop.Models
         public int user_id { get; set; }
         public int product_id { get; set; }
         public int quantity { get; set; }
+        public Nullable<int> order_id { get; set; }
     
         public virtual Products Products { get; set; }
         public virtual Users Users { get; set; }
+        public virtual Orders Orders { get; set; }
     }
 }
