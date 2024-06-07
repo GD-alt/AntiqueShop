@@ -225,5 +225,10 @@ namespace AntiqueShop.Store
         {
             AppFrame.MainFrame.Navigate(new AntiqueShop.Store.Cart(MyID));
         }
+
+        private void Orders_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.MainFrame.Navigate(new AntiqueShop.Store.OrdersPage(MyID));
+        }
     }
 }

@@ -70,5 +70,10 @@ namespace AntiqueShop.Store
                 UpdateData();
             }
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.MainFrame.GoBack();
+        }
     }
 }

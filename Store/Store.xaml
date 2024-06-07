@@ -54,7 +54,7 @@
         <Button x:Name="EditGood" Content="Редактировать" HorizontalAlignment="Left" Margin="474,0,0,0" VerticalAlignment="Center" Click="EditGood_Click"/>
         <Button x:Name="CartBtn" Content="Корзина" HorizontalAlignment="Left" Margin="650,0,0,0" VerticalAlignment="Center" Click="CartBtn_Click"/>
         <Button x:Name="UsersMenu" Content="Пользователи" HorizontalAlignment="Left" Margin="564,0,0,0" VerticalAlignment="Center" Click="UsersMenu_Click"/>
-        <Button x:Name="Orders" Content="Заказы" HorizontalAlignment="Left" Margin="705,0,0,0" VerticalAlignment="Center"/>
+        <Button x:Name="Orders" Content="Заказы" HorizontalAlignment="Left" Margin="705,0,0,0" VerticalAlignment="Center" Click="Orders_Click"/>
         <Button x:Name="ExitButton" Content="Выход" HorizontalAlignment="Left" Margin="753,0,0,0" VerticalAlignment="Center" Click="ExitButton_Click"/>
     </Grid>
 </Page>
