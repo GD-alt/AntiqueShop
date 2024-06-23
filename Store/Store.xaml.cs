@@ -47,10 +47,11 @@ namespace AntiqueShop.Store
         public int Role { get; set; }
         public int MyID { get; set; }
 
-        List<Sizes> sizes = Connector.db.Sizes.ToList();
+        List<Categories> categories = Connector.db.Categories.ToList();
         bool sortOrder = false;
-        string size = "";
+        string category = "";
         int selectedItem = 0;
+        bool onlySelected = false;
 
         public void InitializeData()
         {
@@ -64,9 +65,9 @@ namespace AntiqueShop.Store
 
             FilterCombo.Items.Add("Все");
 
-            for (int i = 0; i < sizes.Count; i++)
+            for (int i = 0; i < categories.Count; i++)
             {
-                FilterCombo.Items.Add(sizes[i].size_name);
+                FilterCombo.Items.Add(categories[i].category_name);
             }
 
             FilterCombo.SelectedIndex = 0;
@@ -76,10 +77,13 @@ namespace AntiqueShop.Store
         {
             List<Products> products = Connector.db.Products.ToList();
 
+            if (onlySelected)
+                products = Connector.db.Favourites.Where(x => x.Users.user_id == MyID).Select(x => x.Products).ToList();
+
             products = products.Where(x => x.description.ToLower().Contains(SearchBox.Text.ToLower())).ToList();
 
-            if (size != "")
-                products = products.Where(x => x.Sizes.size_name.ToLower().Equals(size.ToLower())).ToList();
+            if (category != "")
+                products = products.Where(x => x.Categories.category_name.ToLower().Equals(category.ToLower())).ToList();
 
             if (sortOrder)
             {
@@ -99,11 +103,11 @@ namespace AntiqueShop.Store
 
             if (item == "Все")
             {
-                size = "";
+                category = "";
             }
             else
             {
-                size = item;
+                category = item;
             }
 
             Update();
@@ -229,6 +233,53 @@ namespace AntiqueShop.Store
         private void Orders_Click(object sender, RoutedEventArgs e)
         {
             AppFrame.MainFrame.Navigate(new AntiqueShop.Store.OrdersPage(MyID));
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            return; // not implemented
+
+            onlySelected = ChBox.IsChecked.Value;
+
+            Update();
+        }
+
+        private void AddFavourite_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+
+            int itemId = (int)button.Tag;
+
+            Favourites fav = Connector.db.Favourites.FirstOrDefault(x => x.user_id == MyID && x.product_id == itemId);
+
+            if (fav != null)
+            {
+                Connector.db.Favourites.Remove(fav);
+
+                Connector.db.SaveChanges();
+
+                MessageBox.Show("Товар удален из избранного.", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                Favourites newFav = new Favourites
+                {
+                    user_id = MyID,
+                    product_id = itemId,
+                    added_date = DateTime.Now
+                };
+
+                Connector.db.Favourites.Add(newFav);
+                Connector.db.SaveChanges();
+                MessageBox.Show("Товар добавлен в избранное.", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void ChBox_Click(object sender, RoutedEventArgs e)
+        {
+            onlySelected = ChBox.IsChecked.Value;
+
+            Update();
         }
     }
 }

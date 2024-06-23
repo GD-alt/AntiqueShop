@@ -152,13 +152,16 @@
     <Compile Include="BootUp\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Allergens.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CartItems.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Categories.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Colors.cs">
+    <Compile Include="Models\Favourites.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
@@ -176,10 +179,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\NutritionFacts.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Orders.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderStatuses.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PackagingTypes.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Products.cs">
@@ -188,7 +197,7 @@
     <Compile Include="Models\Roles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Sizes.cs">
+    <Compile Include="Models\StorageConditions.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Users.cs">
@@ -330,6 +339,24 @@
     <Resource Include="Images\vase.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="PDF\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\apple_juice.jpg" />
+    <Resource Include="Images\bread.jpg" />
+    <Resource Include="Images\carrots.jpg" />
+    <Resource Include="Images\cookies.jpg" />
+    <Resource Include="Images\greek_yogurt.jpg" />
+    <Resource Include="Images\green_smoothie.jpg" />
+    <Resource Include="Images\milk.jpg" />
+    <Resource Include="Images\mixed_nuts.jpg" />
+    <Resource Include="Images\muffins.jpg" />
+    <Resource Include="Images\orange_soda.jpg" />
+    <Resource Include="Images\potato_chips.jpg" />
+    <Resource Include="Images\sourdough.jpg" />
+    <Resource Include="Images\spinach.jpg" />
+    <Resource Include="Images\trail_mix.jpg" />
+    <Resource Include="Images\yogurt.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -340,9 +367,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PDF\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

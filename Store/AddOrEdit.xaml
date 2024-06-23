@@ -43,12 +43,12 @@
                 <TextBox Name="InStockBox" MinWidth="300" PreviewTextInput="InStockBox_PreviewTextInput"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="Размер: " Margin="0,0,15,0"></Label>
-                <ComboBox Name="SizeCombo" MinWidth="300"/>
+                <Label Content="Вес: " Margin="0,0,15,0"></Label>
+                <TextBox Name="WeightBox" MinWidth="300" PreviewTextInput="WeightCombo_PreviewTextInput"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="Цвет: " Margin="0,0,15,0"></Label>
-                <ComboBox Name="ColorCombo" MinWidth="300"/>
+                <Label Content="Срок хранения: " Margin="0,0,15,0"></Label>
+                <TextBox Name="LifetimeBox" MinWidth="300" PreviewTextInput="LifetimeBox_PreviewTextInput"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button x:Name="AddButton" Content="Сохранить" Margin="15" Click="AddButton_Click"/>

@@ -4,25 +4,32 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e45bf5d9576b456a925e8c62157de00b" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.CartItems" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Categories" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Colors" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Orders" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.OrderStatuses" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Products" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Roles" Width="1.5" PointX="1.5" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Sizes" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
-        <AssociationConnector Association="Model.FK__CartItems__order__3C69FB99" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__CartItems__produ__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__CartItems__user___3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Products__catego__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Products__color___30F848ED" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Orders__status_i__36B12243" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Orders__user_id__37A5467C" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Products__size_i__31EC6D26" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK__Users__role_id__2D27B809" ManuallyRouted="false" />
+      <Diagram DiagramId="f97d9f0f7736429290c4ac66093232c8" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Allergens" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CartItems" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Categories" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Favourites" Width="1.5" PointX="8.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.NutritionFacts" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Orders" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.OrderStatuses" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PackagingTypes" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Products" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Roles" Width="1.5" PointX="1.5" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.StorageConditions" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK__CartItems__order__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__CartItems__produ__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__CartItems__user___403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Products__catego__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Favourite__produ__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Favourite__user___47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Products__nutrit__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Orders__status_i__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Orders__user_id__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Products__packag__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Products__storag__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Users__role_id__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.ProductAllergens" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
