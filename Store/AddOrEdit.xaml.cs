@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -23,7 +24,26 @@ namespace AntiqueShop.Store
     public partial class AddOrEdit : Page
     {
         public Dictionary<string, int> categories = new Dictionary<string, int>();
+        public Dictionary<string, int> packagingTypes = new Dictionary<string, int>();
         public List<string> imagesList = new List<string>();
+
+        public void RefetchImages()
+        {
+            imagesList.Clear();
+            ImgCombo.Items.Clear();
+
+            imagesList.Add("placeholder.jpg");
+            ImgCombo.Items.Add("placeholder.jpg");
+
+            foreach (string file in Directory.GetFiles("../../Images"))
+            {
+                if (file.EndsWith(".jpg"))
+                {
+                    imagesList.Add(file.Split('/').Last().Split('\\').Last());
+                    ImgCombo.Items.Add(file.Split('/').Last().Split('\\').Last());
+                }
+            }
+        }
 
         public AddOrEdit(bool editMode, int itemId)
         {
@@ -44,19 +64,18 @@ namespace AntiqueShop.Store
                 CatCombo.Items.Add(categoriesList[i].category_name);
             }
 
-            List<Products> productsList = Connector.db.Products.ToList();
+            List<PackagingTypes> packagingTypesList = Connector.db.PackagingTypes.ToList();
 
-            imagesList.Add("placeholder.jpg");
-            ImgCombo.Items.Add("placeholder.jpg");
-
-            for (int i = 0; i < productsList.Count; i++)
+            for (int i = 0; i < packagingTypesList.Count; i++)
             {
-                if (imagesList.Contains(productsList[i].image_url))
+                if (packagingTypes.Keys.Contains(packagingTypesList[i].packaging_name))
                     continue;
 
-                imagesList.Add(productsList[i].image_url);
-                ImgCombo.Items.Add(productsList[i].image_url);
+                packagingTypes.Add(packagingTypesList[i].packaging_name, packagingTypesList[i].packaging_id);
+                PTCombo.Items.Add(packagingTypesList[i].packaging_name);
             }
+
+            RefetchImages();
 
             if (editMode)
             {
@@ -167,11 +186,18 @@ namespace AntiqueShop.Store
                 return;
 
             Products product = new Products();
+            NutritionFacts nutrition = new NutritionFacts();
 
             if (EditMode)
             {
                 product = Connector.db.Products.Find(ProductId);
+                nutrition = Connector.db.NutritionFacts.Find(product.nutrition_id);
             }
+
+            nutrition.calories = int.Parse(CaloriesBox.ToString());
+            nutrition.protein = int.Parse(ProteinsBox.ToString());
+            nutrition.carbohydrates = int.Parse(CHsBox.ToString());
+            nutrition.fats = int.Parse(FatsBox.ToString());
 
             product.name = NameBox.Text;
             product.description = DescBox.Text;
@@ -181,19 +207,17 @@ namespace AntiqueShop.Store
             product.stock = int.Parse(InStockBox.Text);
             product.shelf_life_days = int.Parse(LifetimeBox.Text);
             product.weight_grams = int.Parse(WeightBox.Text);
-            product.nutrition_id = 1;
-            product.packaging_id = 1;
+            product.nutrition_id = nutrition.nutrition_id;
+            product.packaging_id = packagingTypes[PTCombo.SelectedItem.ToString()];
 
             // If edit mode, update product
-            if (EditMode)
+            if (!EditMode)
             {
-                Connector.db.SaveChanges();
-            }
-            else
-            {
+                Connector.db.NutritionFacts.Add(nutrition);
                 Connector.db.Products.Add(product);
-                Connector.db.SaveChanges();
             }
+
+            Connector.db.SaveChanges();
 
             AppFrame.MainFrame.GoBack();
         }
@@ -210,7 +234,7 @@ namespace AntiqueShop.Store
             }
         }
 
-        private void WeightCombo_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void NumbersOnlyHandler(object sender, TextCompositionEventArgs e)
         {
 
             if (Regex.IsMatch(e.Text, @"[^0-9]"))
@@ -219,13 +243,23 @@ namespace AntiqueShop.Store
             }
         }
 
-        private void LifetimeBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void APButton_Click(object sender, RoutedEventArgs e)
         {
-
-            if (Regex.IsMatch(e.Text, @"[^0-9]"))
+            // Open file chooser dialog allowing only .jpg files
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog
             {
-                e.Handled = true;
-            }
+                DefaultExt = ".jpg",
+                Filter = "Joint Photographic Experts Group (*.jpg)|*.jpg"
+            };
+
+            dlg.ShowDialog();
+
+            // Copy it to the Images folder
+            File.Copy(dlg.FileName, $"../../Images/{dlg.SafeFileName}");
+
+            RefetchImages();
+
+            MessageBox.Show("Изображение добавлено!", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

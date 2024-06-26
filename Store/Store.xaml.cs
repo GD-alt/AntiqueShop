@@ -238,10 +238,6 @@ namespace AntiqueShop.Store
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             return; // not implemented
-
-            onlySelected = ChBox.IsChecked.Value;
-
-            Update();
         }
 
         private void AddFavourite_Click(object sender, RoutedEventArgs e)

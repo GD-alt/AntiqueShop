@@ -62,11 +62,20 @@ namespace AntiqueShop.Models
             get
             {
                 string result = "";
+
                 foreach (var allergen in Allergens)
                 {
                     result += allergen.allergen_name + ", ";
                 }
-                return result.TrimEnd(' ').TrimEnd(',');
+
+                result = result.TrimEnd(' ').TrimEnd(',');
+
+                if (result == "")
+                {
+                    return "Отсутствуют";
+                }
+
+                return result;
             }
         }
         public byte is_featured { get; set; }

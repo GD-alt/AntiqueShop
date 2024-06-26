@@ -17,42 +17,69 @@
                     <Setter Property="Width" Value="100"/>
                 </Style>
             </StackPanel.Resources>
-            
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="Название: " Margin="0,0,15,0"></Label>
-                <TextBox Name="NameBox" MinWidth="300"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="Описание: " Margin="0,0,15,0"></Label>
-                <TextBox Name="DescBox" MinWidth="300"></TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="Цена: " Margin="0,0,15,0"></Label>
-                <TextBox Name="PriceBox" MinWidth="300" PreviewTextInput="DescBox_PreviewTextInput"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="Категория: " Margin="0,0,15,0"></Label>
-                <ComboBox Name="CatCombo" MinWidth="300"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="Изображение: " Margin="0,0,15,0"></Label>
-                <ComboBox Name="ImgCombo" MinWidth="300"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="На складе: " Margin="0,0,15,0"></Label>
-                <TextBox Name="InStockBox" MinWidth="300" PreviewTextInput="InStockBox_PreviewTextInput"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="Вес: " Margin="0,0,15,0"></Label>
-                <TextBox Name="WeightBox" MinWidth="300" PreviewTextInput="WeightCombo_PreviewTextInput"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="Срок хранения: " Margin="0,0,15,0"></Label>
-                <TextBox Name="LifetimeBox" MinWidth="300" PreviewTextInput="LifetimeBox_PreviewTextInput"/>
+
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Название: " Margin="0,0,15,0"></Label>
+                        <TextBox Name="NameBox" MinWidth="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Описание: " Margin="0,0,15,0"></Label>
+                        <TextBox Name="DescBox" MinWidth="200"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Цена: " Margin="0,0,15,0"></Label>
+                        <TextBox Name="PriceBox" MinWidth="200" PreviewTextInput="DescBox_PreviewTextInput"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Категория: " Margin="0,0,15,0"></Label>
+                        <ComboBox Name="CatCombo" MinWidth="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Изображение: " Margin="0,0,15,0"></Label>
+                        <ComboBox Name="ImgCombo" MinWidth="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Тип упаковки: " Margin="0,0,15,0"></Label>
+                        <ComboBox Name="PTCombo" MinWidth="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="На складе: " Margin="0,0,15,0"></Label>
+                        <TextBox Name="InStockBox" MinWidth="200" PreviewTextInput="InStockBox_PreviewTextInput"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Вес: " Margin="0,0,15,0"></Label>
+                        <TextBox Name="WeightBox" MinWidth="200" PreviewTextInput="NumbersOnlyHandler"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Срок хранения: " Margin="0,0,15,0"></Label>
+                        <TextBox Name="LifetimeBox" MinWidth="200" PreviewTextInput="NumbersOnlyHandler"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Калорий: " Margin="0,0,15,0"></Label>
+                        <TextBox Name="CaloriesBox" MinWidth="200" PreviewTextInput="NumbersOnlyHandler"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Белков: " Margin="0,0,15,0"></Label>
+                        <TextBox Name="ProteinsBox" MinWidth="200" PreviewTextInput="NumbersOnlyHandler"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Углеводов: " Margin="0,0,15,0"></Label>
+                        <TextBox Name="CHsBox" MinWidth="200" PreviewTextInput="NumbersOnlyHandler"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="Жиров: " Margin="0,0,15,0"></Label>
+                        <TextBox Name="FatsBox" MinWidth="200" PreviewTextInput="NumbersOnlyHandler"/>
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button x:Name="AddButton" Content="Сохранить" Margin="15" Click="AddButton_Click"/>
                 <Button x:Name="DelButton" Content="Удалить" Margin="15" Click="DelButton_Click"/>
+                <Button x:Name="APButton" Content="Добавить картинку" Margin="15" Click="APButton_Click"/>
             </StackPanel>
             <Button x:Name="BackButton" Content="Назад" Margin="15" Click="BackButton_Click"/>
         </StackPanel>
